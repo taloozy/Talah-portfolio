@@ -1,0 +1,931 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Talah Alzoabi Portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Talah Alzoabi, Operations and Supply Chain Management student at Effat University.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+<style>
+/* Layout: a clean single-column résumé site. Generous whitespace, one navy accent, quiet cards, subtle motion. */
+:root{
+  --bg:#F7F8FB; --surface:#FFFFFF; --sunk:#F0F2F7; --ink:#111A2E; --muted:#5B6478; --line:#E2E6EE;
+  --accent:#1E3A70; --on-accent:#FFFFFF; --accent-soft:#E8EDF7; --ok:#1C7C54; --ok-soft:#E3F3EB; --warn:#9A6200; --warn-soft:#FDF1DC;
+  --shadow:0 1px 2px rgba(17,26,46,.05),0 10px 30px rgba(17,26,46,.07);
+  --font:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --r:16px; --max:1120px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0D1220; --surface:#141B2D; --sunk:#10172A; --ink:#E9EDF5; --muted:#9AA3B8; --line:#242E45;
+  --accent:#9DB6EC; --on-accent:#0D1220; --accent-soft:#1B2640; --ok:#5FCB97; --ok-soft:#14302A; --warn:#F0BC5E; --warn-soft:#352914;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 12px 32px rgba(0,0,0,.35); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0D1220; --surface:#141B2D; --sunk:#10172A; --ink:#E9EDF5; --muted:#9AA3B8; --line:#242E45;
+  --accent:#9DB6EC; --on-accent:#0D1220; --accent-soft:#1B2640; --ok:#5FCB97; --ok-soft:#14302A; --warn:#F0BC5E; --warn-soft:#352914;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 12px 32px rgba(0,0,0,.35); color-scheme:dark}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:var(--bg);color:var(--ink);font:16px/1.65 var(--font);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--bg)}
+a{color:inherit}
+img{max-width:100%;display:block}
+h1,h2,h3,h4{margin:0;line-height:1.15;text-wrap:balance;letter-spacing:-.015em}
+p{margin:0}
+.wrap{max-width:var(--max);margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.label{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--accent);color:var(--on-accent);padding:8px 14px;border-radius:8px;z-index:100}
+.skip:focus{left:16px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* header */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .3s}
+header.top.scrolled{border-bottom-color:var(--line)}
+.nav{display:flex;align-items:center;gap:16px;height:66px}
+.mark{font-weight:800;font-size:16px;text-decoration:none;letter-spacing:-.01em;white-space:nowrap}
+.mark span{color:var(--muted);font-weight:500}
+.links{display:flex;gap:2px;margin-left:auto}
+.links a{font-size:14px;font-weight:500;text-decoration:none;color:var(--muted);padding:7px 11px;border-radius:8px;transition:color .2s,background .2s}
+.links a:hover{color:var(--ink)}
+.links a.on{color:var(--ink);background:var(--accent-soft)}
+.icon-btn{width:38px;height:38px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);display:grid;place-items:center;cursor:pointer;flex:none;transition:border-color .2s}
+.icon-btn:hover{border-color:var(--accent)}
+.icon-btn:disabled{opacity:.4;cursor:default}
+.icon-btn svg{width:18px;height:18px}
+.menu-btn{display:none}
+@media (max-width:960px){
+  .links{position:absolute;top:66px;left:0;right:0;flex-direction:column;background:var(--surface);border-bottom:1px solid var(--line);padding:10px max(16px,env(safe-area-inset-right,0px)) 16px max(16px,env(safe-area-inset-left,0px));display:none;box-shadow:var(--shadow)}
+  .links.open{display:flex}
+  .links a{padding:11px 12px}
+  .menu-btn{display:grid;margin-left:auto}
+}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;font:600 15px var(--font);padding:12px 18px;border-radius:10px;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .2s,box-shadow .2s,border-color .2s,background .2s;white-space:nowrap}
+.btn svg{width:16px;height:16px;flex:none}
+.btn.primary{background:var(--accent);color:var(--on-accent)}
+.btn.primary:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
+.btn.ghost{border-color:var(--line);background:var(--surface);color:var(--ink)}
+.btn.ghost:hover{border-color:var(--accent);transform:translateY(-1px)}
+.btn.sm{font-size:13.5px;padding:8px 13px;border-radius:9px}
+
+/* hero */
+.hero{padding-block:72px 24px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.65fr);gap:56px;align-items:center}
+.hero .label{animation:up .7s both}
+.hero h1{font-size:clamp(44px,6.8vw,80px);font-weight:800;letter-spacing:-.035em;line-height:1;margin-top:16px;animation:up .8s .08s both}
+.hero .role{font-size:clamp(18px,2vw,22px);font-weight:600;color:var(--muted);margin-top:14px;animation:up .8s .16s both}
+.hero .lede{font-size:17px;color:var(--muted);max-width:36em;margin-top:18px;animation:up .8s .24s both}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px;animation:up .8s .32s both}
+@keyframes up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.portrait{position:relative;animation:up 1s .2s both}
+.portrait .ph{aspect-ratio:4/5;max-width:100%;border-radius:22px;overflow:hidden;background:var(--sunk);box-shadow:var(--shadow)}
+.portrait img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.portrait:hover img{transform:scale(1.03)}
+.portrait .status{position:absolute;left:16px;bottom:16px;display:flex;align-items:center;gap:8px;background:var(--surface);color:var(--ink);font-size:13px;font-weight:600;padding:8px 12px;border-radius:999px;box-shadow:var(--shadow)}
+.pulse{width:8px;height:8px;border-radius:50%;background:var(--ok);animation:pulse 2.2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--ok) 50%,transparent)}80%,100%{box-shadow:0 0 0 9px transparent}}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:56px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px 22px;min-width:0;animation:up .8s both}
+.stat:nth-child(2){animation-delay:.08s}.stat:nth-child(3){animation-delay:.16s}.stat:nth-child(4){animation-delay:.24s}
+.stat b{display:block;font-size:28px;font-weight:800;letter-spacing:-.02em;line-height:1.1;font-variant-numeric:tabular-nums}
+.stat b small{font-size:15px;color:var(--muted);font-weight:600}
+.stat > span{display:block;font-size:13.5px;color:var(--muted);margin-top:6px;line-height:1.4}
+
+/* sections */
+section.block{padding-block:100px 0}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:end;margin-bottom:36px}
+.sec-head h2{font-size:clamp(30px,3.8vw,44px);font-weight:800;margin-top:10px}
+.sec-head > p{color:var(--muted);max-width:34em;justify-self:end}
+.reveal{transition:transform .7s cubic-bezier(.2,.8,.2,1),opacity .7s}
+.reveal.pre{transform:translateY(22px);opacity:.4}
+.card-box{background:var(--surface);border:1px solid var(--line);border-radius:var(--r)}
+
+/* about */
+.about{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.65fr);gap:40px;align-items:start}
+.about-text{display:grid;gap:18px}
+.about-text p{font-size:18px;line-height:1.7;max-width:38em}
+.about-text p + p{color:var(--muted);font-size:17px}
+.facts{padding:6px 22px}
+.facts div{padding:14px 0;border-bottom:1px solid var(--line)}
+.facts div:last-child{border-bottom:0}
+.facts dt{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.facts dd{margin:3px 0 0;font-weight:600}
+
+/* experience */
+.timeline{display:grid;gap:16px}
+.job{display:grid;grid-template-columns:180px minmax(0,1fr);gap:28px;padding:26px 28px;transition:box-shadow .3s,border-color .3s}
+.job:hover{box-shadow:var(--shadow);border-color:color-mix(in srgb,var(--accent) 30%,var(--line))}
+.job .when{font-size:14px;font-weight:600;color:var(--muted);padding-top:3px}
+.job h3{font-size:19px;font-weight:700}
+.job .org{color:var(--accent);font-weight:600;margin-top:4px;font-size:15px}
+.job ul{margin:12px 0 0;padding-left:18px;display:grid;gap:6px;color:var(--muted);max-width:60em}
+.job li::marker{color:var(--accent)}
+.job-actions{margin-top:16px}
+
+/* volunteering */
+.vol{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.vcard{display:flex;flex-direction:column;overflow:hidden;transition:transform .35s,box-shadow .35s}
+.vcard:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.vcard .thumb{aspect-ratio:16/10}
+.vcard .thumb img{object-position:center 35%}
+.vcard .card-body{gap:8px}
+.vcard h3{font-size:18px;font-weight:700}
+.vcard p{color:var(--muted);font-size:14.5px}
+.vcard .acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:6px}
+/* education */
+.edu{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.school{padding:24px 26px;display:grid;gap:4px}
+.school .yr{font-size:13.5px;font-weight:600;color:var(--muted)}
+.school h3{font-size:19px;font-weight:700;margin-top:4px}
+.school .where{color:var(--accent);font-weight:600}
+.school .gpa{margin-top:10px;display:inline-flex;align-self:start;justify-self:start;font-size:13.5px;font-weight:700;padding:5px 10px;border-radius:8px;background:var(--accent-soft)}
+
+/* coursework */
+.cw-head{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;margin:40px 0 18px}
+.cw-head h3{font-size:22px;font-weight:800}
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin-left:auto}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:999px;white-space:nowrap}
+.pill.done{background:var(--ok-soft);color:var(--ok)}
+.pill.now{background:var(--warn-soft);color:var(--warn)}
+.pill i{width:6px;height:6px;border-radius:50%;background:currentColor}
+.cw{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.area{padding:22px 24px}
+.area-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:12px}
+.area h4{font-size:16px;font-weight:700}
+.area .count{font-size:13px;color:var(--muted);font-weight:600;white-space:nowrap}
+.area ul{list-style:none;margin:0;padding:0}
+.area li{display:grid;grid-template-columns:96px minmax(0,1fr) auto;gap:12px;align-items:center;padding:8px 0;border-top:1px solid var(--line);font-size:14.5px}
+.area li code{font:600 12.5px var(--font);color:var(--muted);letter-spacing:.02em}
+.area li .pill{font-size:11.5px;padding:3px 8px}
+
+/* projects */
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:24px}
+.filters{display:flex;flex-wrap:wrap;gap:6px}
+.filters button{font:500 14px var(--font);padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--muted);cursor:pointer;transition:all .2s}
+.filters button:hover{color:var(--ink);border-color:var(--accent)}
+.filters button[aria-pressed="true"]{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.search{margin-left:auto;position:relative;flex:1 1 220px;max-width:300px}
+.search input{width:100%;font:15px var(--font);padding:10px 14px 10px 38px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+.search svg{position:absolute;left:12px;top:50%;width:16px;height:16px;transform:translateY(-50%);color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.card{display:flex;flex-direction:column;overflow:hidden;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s;animation:up .5s both}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.thumb{aspect-ratio:16/10;max-width:100%;background:var(--sunk);overflow:hidden;position:relative;border:0;padding:0;cursor:pointer;display:block;width:100%;border-bottom:1px solid var(--line)}
+.thumb img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.card:hover .thumb img{transform:scale(1.05)}
+.thumb .pages{position:absolute;left:10px;bottom:10px;font-size:11.5px;font-weight:600;background:var(--surface);color:var(--ink);padding:4px 8px;border-radius:6px}
+.thumb.empty{display:grid;place-items:center;cursor:default}
+.thumb.empty span{font-size:13px;color:var(--muted);font-weight:500}
+.card-body{padding:18px 20px 20px;display:flex;flex-direction:column;gap:9px;flex:1}
+.kicker{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.card h3{font-size:18px;font-weight:700;line-height:1.25}
+.card p{font-size:14.5px;color:var(--muted);line-height:1.55}
+.card .meta{font-size:13px;color:var(--muted);margin-top:auto;padding-top:4px;font-weight:500}
+.card .acts{display:flex;flex-wrap:wrap;gap:8px}
+.no-results{grid-column:1/-1;padding:40px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:16px}
+
+/* research */
+.paper{padding:36px 38px;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,.5fr);gap:40px}
+.badges{display:flex;flex-wrap:wrap;gap:8px}
+.badge{font-size:12px;font-weight:700;padding:5px 10px;border-radius:7px;background:var(--accent);color:var(--on-accent)}
+.badge.soft{background:var(--accent-soft);color:var(--ink)}
+.paper h3{font-size:clamp(22px,2.5vw,30px);font-weight:800;margin-top:16px}
+.paper .authors{margin-top:10px;color:var(--muted);font-size:15px}
+.paper .authors strong{color:var(--ink)}
+.paper .abs{margin-top:18px;line-height:1.7;color:var(--muted)}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
+.compare div{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--sunk);min-width:0}
+.compare b{font-size:15px}
+.compare span{display:block;font-size:14px;color:var(--muted);margin-top:4px;line-height:1.45}
+.paper .acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.paper .note{font-size:13px;color:var(--muted);margin-top:16px}
+.paper-side{border-left:1px solid var(--line);padding-left:32px;display:grid;gap:16px;align-content:start}
+.paper-side dt{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.paper-side dd{margin:3px 0 0;font-weight:600;font-size:15px}
+.doi{word-break:break-all}
+
+/* recognition */
+.honors{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-bottom:20px}
+.honor{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);overflow:hidden;transition:transform .35s,box-shadow .35s}
+.honor:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.honor .thumb{aspect-ratio:auto;height:100%;min-height:190px;border-bottom:0;border-right:1px solid var(--line)}
+.honor .thumb img{object-position:center}
+.honor-body{padding:22px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.honor-body h3{font-size:18px;font-weight:700}
+.honor-body p{color:var(--muted);font-size:14.5px}
+.honor-body .acts{margin-top:auto;padding-top:8px}
+.certs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.cert{display:flex;flex-direction:column;overflow:hidden;transition:transform .35s,box-shadow .35s}
+.cert:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.cert .thumb{aspect-ratio:990/765}
+.cert .thumb img{object-position:center}
+.cert-body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:5px;flex:1}
+.cert-body h3{font-size:15px;font-weight:700;line-height:1.35;letter-spacing:0}
+.cert-body p{font-size:13px;color:var(--muted)}
+.cert-body .acts{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:8px}
+.more-certs{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.chip{font-size:13.5px;padding:8px 13px;border-radius:10px;border:1px solid var(--line);background:var(--surface);max-width:100%}
+.chip b{color:var(--accent)}
+.namenote{font-size:13.5px;color:var(--muted);margin-top:18px}
+
+/* skills */
+.map{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 110px;padding:30px}
+.map svg.wires{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.wires path{fill:none;stroke:var(--line);stroke-width:1.3;transition:stroke .25s,stroke-width .25s,opacity .25s}
+.wires path.hot{stroke:var(--accent);stroke-width:2.2}
+.map.active .wires path:not(.hot){opacity:.25}
+.col h4{margin:0 0 12px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.col ul{list-style:none;margin:0;padding:0;display:grid;gap:7px}
+.node{position:relative;z-index:1;display:flex;align-items:center;gap:10px;width:100%;text-align:left;font:500 14.5px var(--font);color:var(--ink);background:var(--sunk);border:1px solid var(--line);border-radius:10px;padding:8px 12px;cursor:pointer;transition:background .2s,border-color .2s,opacity .2s}
+.node .k{font-size:11.5px;font-weight:600;color:var(--muted);margin-left:auto;white-space:nowrap}
+.node.hot{background:var(--accent-soft);border-color:var(--accent)}
+.map.active .node:not(.hot){opacity:.45}
+.skill-groups{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:20px}
+.sg{padding:20px 22px}
+.sg h4{margin:0 0 12px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.sg div{display:flex;flex-wrap:wrap;gap:6px}
+.sg span{font-size:13.5px;padding:5px 11px;border-radius:8px;background:var(--sunk);border:1px solid var(--line)}
+.mobile-ev{display:none}
+
+/* contact */
+.contact{margin-top:100px;padding:52px 48px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:40px;align-items:center}
+.contact h2{font-size:clamp(30px,4vw,46px);font-weight:800}
+.contact p{margin-top:12px;color:var(--muted);max-width:30em;font-size:17px}
+.avail{display:inline-flex;align-items:center;gap:8px;margin-top:20px;font-size:13.5px;font-weight:600;padding:7px 12px;border-radius:999px;background:var(--ok-soft);color:var(--ok)}
+.lines{display:grid;gap:10px}
+.cline{display:flex;align-items:center;gap:12px;background:var(--sunk);border:1px solid var(--line);border-radius:12px;padding:12px 14px;min-width:0}
+.cline svg{width:18px;height:18px;flex:none;color:var(--accent)}
+.cline .v{min-width:0;flex:1}
+.cline small{display:block;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.cline a,.cline span.t{font-weight:600;text-decoration:none;word-break:break-all;user-select:all}
+.cline a:hover{text-decoration:underline}
+.copy{font:600 12.5px var(--font);color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:6px 10px;cursor:pointer;flex:none}
+.copy:hover{border-color:var(--accent)}
+footer{padding-block:36px 48px;color:var(--muted);font-size:13.5px;display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
+footer a{color:var(--muted)}
+
+/* viewer */
+dialog.viewer{width:min(1040px,calc(100vw - 24px));height:min(92vh,980px);max-width:none;max-height:none;padding:0;border:1px solid var(--line);border-radius:18px;background:var(--surface);color:var(--ink);box-shadow:0 30px 80px rgba(0,0,0,.35);overflow:hidden}
+dialog.viewer[open]{display:flex;flex-direction:column;animation:dlg .3s cubic-bezier(.2,.8,.2,1)}
+@keyframes dlg{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+dialog.viewer::backdrop{background:rgba(8,12,24,.6);backdrop-filter:blur(4px)}
+.v-head{display:flex;align-items:center;gap:10px;padding:14px 16px 14px 20px;border-bottom:1px solid var(--line)}
+.v-head .t{min-width:0;flex:1}
+.v-head .t small{display:block;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.v-head .t b{display:block;font-size:17px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.v-tabs{display:flex;gap:6px;padding:10px 20px 0;flex-wrap:wrap}
+.v-tabs button{font:500 13.5px var(--font);padding:7px 12px;border-radius:9px;border:1px solid var(--line);background:var(--sunk);color:var(--muted);cursor:pointer}
+.v-tabs button[aria-selected="true"]{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.v-body{flex:1;overflow:auto;padding:20px;background:var(--sunk);display:grid;gap:16px;align-content:start;justify-items:center}
+.v-body img{width:100%;max-width:900px;height:auto;border-radius:6px;box-shadow:0 2px 14px rgba(0,0,0,.12);background:#fff}
+.v-body img.portrait-page{max-width:720px}
+.v-more{max-width:900px;width:100%;text-align:center;padding:22px;border:1px dashed var(--line);border-radius:12px;color:var(--muted);font-size:14.5px;background:var(--surface)}
+.v-more .btn{margin-top:12px}
+.v-foot{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:12px 16px 12px 20px;border-top:1px solid var(--line)}
+.v-foot .info{font-size:13px;color:var(--muted);margin-right:auto;font-weight:500}
+
+/* responsive */
+@media (max-width:980px){
+  .grid,.certs{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .honors{grid-template-columns:1fr}
+  .map{gap:0 56px}
+  .skill-groups{grid-template-columns:1fr 1fr}
+}
+@media (max-width:820px){
+  .hero-grid{grid-template-columns:1fr;gap:36px}
+  .portrait{max-width:360px;width:100%}
+  .sec-head{grid-template-columns:1fr}
+  .sec-head > p{justify-self:start}
+  .about,.edu{grid-template-columns:1fr}
+  .paper{grid-template-columns:1fr;gap:24px}
+  .paper-side{border-left:0;border-top:1px solid var(--line);padding:22px 0 0}
+  .contact{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr 1fr}
+  .job{grid-template-columns:1fr;gap:6px}
+}
+@media (max-width:640px){
+  .hero{padding-block:40px 16px}
+  .grid,.certs,.vol{grid-template-columns:1fr}
+  .honor{grid-template-columns:1fr}
+  .honor .thumb{min-height:0;aspect-ratio:4/3;border-right:0;border-bottom:1px solid var(--line)}
+  .map{grid-template-columns:1fr;padding:20px}
+  .map svg.wires,.col.right{display:none}
+  .mobile-ev{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+  .mobile-ev span{font-size:12.5px;padding:4px 9px;border-radius:7px;background:var(--accent-soft)}
+  .node .k{display:none}
+  .skill-groups{grid-template-columns:1fr}
+  .paper{padding:26px 22px}
+  .compare{grid-template-columns:1fr}
+  .contact{padding:36px 22px}
+  .job,.school,.area{padding:20px}
+  .area li{grid-template-columns:78px minmax(0,1fr) auto;gap:8px;font-size:14px}
+  section.block{padding-block:76px 0}
+  .search{max-width:none;margin-left:0}
+  .legend{margin-left:0}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .reveal.pre{transform:none;opacity:1}
+}
+</style>
+</head>
+<body>
+
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top" id="top">
+  <div class="wrap nav">
+    <a class="mark" href="#home">Talah Alzoabi <span>· OSCM</span></a>
+    <nav class="links" id="links" aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#projects">Projects</a>
+      <a href="#research">Research</a>
+      <a href="#recognition">Recognition</a>
+      <a href="#skills">Skills</a>
+      <a href="#volunteering">Volunteering</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="icon-btn" id="themeBtn" type="button" aria-label="Switch color theme" title="Switch theme">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+    <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="links">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero" id="home">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <p class="label">Effat University · Class of 2027</p>
+        <h1>Talah Alzoabi</h1>
+        <p class="role">Senior Operations and Supply Chain Management Student</p>
+        <p class="lede">Interested in logistics, warehousing and inventory management, and looking for a six-month co-op opportunity.</p>
+        <div class="cta">
+          <button class="btn primary" type="button" data-doc="cv">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>View my CV</button>
+          <a class="btn ghost" href="#contact">Contact me</a>
+          <a class="btn ghost" href="https://www.linkedin.com/in/talah-al-zoabi-39646228a" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.6 8.65 21 11.3 21 14.7V21h-4v-5.6c0-1.34-.03-3.06-1.86-3.06-1.87 0-2.15 1.46-2.15 2.96V21H9z"/></svg>LinkedIn</a>
+        </div>
+      </div>
+      <figure class="portrait" style="margin:0">
+        <div class="ph"><img src="img/talah-portrait.webp" alt="Portrait of Talah Alzoabi" width="720" height="900"></div>
+        <span class="status"><span class="pulse" aria-hidden="true"></span>Open to co-op opportunities</span>
+      </figure>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><b><span data-count="3.82" data-dec="2">3.82</span> <small>/ 4.00</small></b><span>Current GPA</span></div>
+      <div class="stat"><b>Dean’s List</b><span>2024–25 and 2025–26</span></div>
+      <div class="stat"><b>IEOM 2026</b><span>Co-author, published conference paper</span></div>
+      <div class="stat"><b>Nominee</b><span>Queen Effat Citizenship Award, 2026</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="about">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><h2>About me</h2></div>
+    </div>
+    <div class="about">
+      <div class="about-text reveal">
+        <p>I’m a senior Operations and Supply Chain Management student at Effat University with a strong academic record and leadership experience. I’m passionate about logistics, operations and supply chain management, especially the way decisions about ordering, storing and moving goods shape cost, waste and customer service. Through my coursework, a logistics summer internship and published research on cold chain performance, I’ve built a practical understanding of how warehouses, distribution centers and supply chains run day to day. I bring strong communication, teamwork and organizational skills, and I enjoy working with people to plan, coordinate and get things done. I’m seeking a six-month co-op where I can contribute to real operations, keep learning from experienced professionals, and gain hands-on industry experience with a leading local or global organization.</p>
+      </div>
+      <dl class="facts card-box reveal">
+        <div><dt>Degree</dt><dd>BSc Operations and Supply Chain Management, 2023–2027</dd></div>
+        <div><dt>Looking for</dt><dd>Six-month co-op in logistics, operations or supply chain</dd></div>
+        <div><dt>Languages</dt><dd>Arabic (native), English (fluent), French (basic)</dd></div>
+        <div><dt>Based in</dt><dd>Jeddah, Makkah Region, Saudi Arabia</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="experience">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><p class="label">Experience</p><h2>Work and leadership</h2></div>
+      <p>Most recent first.</p>
+    </div>
+    <div class="timeline">
+      <article class="job card-box reveal">
+        <p class="when">Nov 2026 – Jan 2027</p>
+        <div>
+          <h3>Mentee, ElevateMe Mentorship Programme (Cohort 2)</h3>
+          <p class="org">PwC Middle East</p>
+          <ul>
+            <li>Selected as a mentee in PwC Middle East’s ElevateMe programme, which bridges the gap between academia and the professional world through mentorship with PwC professionals.</li>
+          </ul>
+          <div class="job-actions"><button class="btn ghost sm" type="button" data-single="pwc">View selection certificate</button></div>
+        </div>
+      </article>
+      <article class="job card-box reveal">
+        <p class="when">Sep 2026 – Present</p>
+        <div>
+          <h3>Vice President</h3>
+          <p class="org">IEOM Society Student Chapter · Effat University</p>
+          <ul>
+            <li>Lead a team of 13 members across nine director roles, including operations, marketing, finance, PR, club reports, photography, content creation, social media and design.</li>
+            <li>Support club leadership, activity planning and coordination of student initiatives.</li>
+            <li>Help organize industry visits, guest speakers and educational events related to industrial engineering, operations and supply chain management.</li>
+            <li>Coordinate with companies and professionals to create industry engagement opportunities for students.</li>
+          </ul>
+          <div class="job-actions"><button class="btn ghost sm" type="button" data-single="ieom">View chapter structure</button></div>
+        </div>
+      </article>
+      <article class="job card-box reveal">
+        <p class="when">Jul 2026 – Aug 2026</p>
+        <div>
+          <h3>Logistics Summer Intern (not official)</h3>
+          <p class="org">Flow Progressive Logistics</p>
+          <ul>
+            <li>Gained hands-on exposure to warehouse operations across Flow’s automated Distribution Center (KAEC), Jeddah Hub and Head Office.</li>
+            <li>Learned inbound and outbound operations, inventory management, order fulfillment, cross-docking, and first-, middle- and last-mile logistics.</li>
+            <li>Observed automated warehouse systems and supported operational planning using WMS tools, warehouse KPIs and inventory tracking.</li>
+          </ul>
+        </div>
+      </article>
+      <article class="job card-box reveal">
+        <p class="when">2026 – Present</p>
+        <div>
+          <h3>Content Creator</h3>
+          <p class="org">AIAS · Effat University</p>
+          <ul>
+            <li>Create photo and video content for social media and student activities.</li>
+            <li>Collaborate with the creative team to plan and produce engaging content.</li>
+            <li>Capture events and develop content to strengthen the club’s online presence.</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="education">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><p class="label">Education</p><h2>Education</h2></div>
+    </div>
+    <div class="edu">
+      <article class="school card-box reveal">
+        <span class="yr">2023 – 2027</span>
+        <h3>Bachelor’s Degree in Operations and Supply Chain Management</h3>
+        <span class="where">Effat University, Jeddah</span>
+        <span class="gpa">Current GPA 3.82 / 4.00</span>
+      </article>
+      <article class="school card-box reveal">
+        <span class="yr">Graduated 2023</span>
+        <h3>American High School Diploma</h3>
+        <span class="where">Coral International School</span>
+        <span class="gpa">GPA 3.98 / 4.00</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="projects">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><p class="label">Projects</p><h2>Coursework and team projects</h2></div>
+      <p>Every report and presentation opens on this page. Filter by type or search by course or topic.</p>
+    </div>
+    <div class="tools">
+      <div class="filters" id="filters" role="group" aria-label="Filter projects">
+        <button type="button" data-f="all" aria-pressed="true">All</button>
+        <button type="button" data-f="research" aria-pressed="false">Research</button>
+        <button type="button" data-f="ops" aria-pressed="false">Operations</button>
+        <button type="button" data-f="pm" aria-pressed="false">Project management</button>
+        <button type="button" data-f="biz" aria-pressed="false">Business</button>
+      </div>
+      <label class="search"><span class="sr">Search projects</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="q" type="search" placeholder="Search projects" autocomplete="off">
+      </label>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section class="block" id="research">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><p class="label">Research</p><h2>Published research</h2></div>
+      <p>An OSCM 411 course project that became a peer-reviewed conference paper.</p>
+    </div>
+    <article class="paper card-box reveal">
+      <div>
+        <div class="badges"><span class="badge">Conference paper</span><span class="badge soft">IEOM · Cape Town · May 2026</span></div>
+        <h3>Cold Chain Logistics Performance in Saudi Arabia: Evidence from the Pharmaceutical Industry</h3>
+        <p class="authors">Leen AlAbsi, Manar SharafAldeen, Ghalia AlHazmi, Yasmina Sagga and <strong>Talah Alzuabi</strong></p>
+        <p class="abs">Published in the Proceedings of the 7th African International Conference on Industrial Engineering and Operations Management, Cape Town, 13–15 May 2026. The study compares two organizations using interviews and data logger records. Both systems work well, while extreme heat, door openings, equipment faults and human error remain the main risks. The paper recommends predictive monitoring, in-transit tracking and backup power.</p>
+        <div class="compare">
+          <div><b>Tamer Group</b><span>Real-time monitoring with corrective action.</span></div>
+          <div><b>Medical Fakeeh</b><span>Verifies shipments with data loggers and rejects any excursion outside 2–8°C.</span></div>
+        </div>
+        <div class="acts">
+          <a class="btn primary" href="https://doi.org/10.46254/AF07.20260010" target="_blank" rel="noopener">Read on IEOM
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+          <button class="btn ghost" type="button" data-open="coldchain" data-tab="0">View the paper</button>
+          <button class="btn ghost" type="button" data-open="coldchain" data-tab="1">Class presentation</button>
+        </div>
+        <p class="note">The proceedings list me as Talah Alzuabi, the spelling on my university records.</p>
+      </div>
+      <dl class="paper-side">
+        <div><dt>Method</dt><dd>Comparative case study, interviews and data logger records</dd></div>
+        <div><dt>Sector</dt><dd>Saudi pharmaceutical distribution</dd></div>
+        <div><dt>Course</dt><dd>OSCM 411</dd></div>
+        <div><dt>DOI</dt><dd class="doi">10.46254/AF07.20260010</dd></div>
+      </dl>
+    </article>
+  </div>
+</section>
+
+<section class="block" id="recognition">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><p class="label">Recognition</p><h2>Awards and certificates</h2></div>
+      <p>Click any certificate to view it. Coursera certificates link to their official verification page.</p>
+    </div>
+    <div class="honors" id="honors"></div>
+    <div class="certs" id="certs"></div>
+    <div class="more-certs">
+      <span class="chip"><b>In progress</b> · Excel Skills for Business: Essentials, Macquarie University (Coursera)</span>
+    </div>
+    <p class="namenote">Certificates show my name as Talah Alzuabi or Talah Ammar Alzuabi, the spelling on my university records.</p>
+  </div>
+</section>
+
+<section class="block" id="skills">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><p class="label">Skills</p><h2>Skills and where I used them</h2></div>
+      <p>Hover or tap a skill to see the projects, roles and courses behind it.</p>
+    </div>
+    <div class="map card-box reveal" id="map">
+      <svg class="wires" id="wires" aria-hidden="true"></svg>
+      <div class="col left"><h4>Skill</h4><ul id="skillList"></ul></div>
+      <div class="col right"><h4>Where it shows</h4><ul id="evList"></ul></div>
+    </div>
+    <div class="skill-groups">
+      <div class="sg card-box reveal"><h4>Tools</h4><div><span>Microsoft Excel (basic to intermediate)</span><span>Microsoft PowerPoint</span><span>WMS tools</span><span>Prezi</span><span>Social media management</span><span>Content creation</span></div></div>
+      <div class="sg card-box reveal"><h4>Relevant coursework</h4><div><span>Operations Management</span><span>Supply Chain Management</span><span>Logistics and Procurement</span><span>Project Management</span><span>Business Analytics</span><span>Management of Service Operations</span></div></div>
+      <div class="sg card-box reveal"><h4>Personal skills</h4><div><span>Communication &amp; interpersonal skills</span><span>Teamwork &amp; collaboration</span><span>Leadership &amp; event coordination</span><span>Organizational skills</span><span>Time management</span><span>Adaptability &amp; fast learning</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="volunteering">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><p class="label">Volunteering</p><h2>Giving back</h2></div>
+      <p>Community work with local volunteer teams in Jeddah.</p>
+    </div>
+    <div class="vol" id="vol"></div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact card-box reveal">
+      <div>
+        <h2>Let’s work together</h2>
+        <p>I’m seeking a six-month cooperative training placement in logistics, warehousing or supply chain operations, with a local or global organization.</p>
+        <span class="avail"><span class="pulse" aria-hidden="true"></span>Available for co-op · Jeddah, Saudi Arabia</span>
+      </div>
+      <div class="lines">
+        <div class="cline">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          <div class="v"><small>Email</small><a href="mailto:talazoabi60@gmail.com">talazoabi60@gmail.com</a></div>
+          <button class="copy" type="button" data-copy="talazoabi60@gmail.com">Copy</button>
+        </div>
+        <div class="cline">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
+          <div class="v"><small>Phone</small><span class="t">+966 53 930 0378</span></div>
+          <button class="copy" type="button" data-copy="+966539300378">Copy</button>
+        </div>
+        <div class="cline">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.6 8.65 21 11.3 21 14.7V21h-4v-5.6c0-1.34-.03-3.06-1.86-3.06-1.87 0-2.15 1.46-2.15 2.96V21H9z"/></svg>
+          <div class="v"><small>LinkedIn</small><a href="https://www.linkedin.com/in/talah-al-zoabi-39646228a" target="_blank" rel="noopener">linkedin.com/in/talah-al-zoabi</a></div>
+        </div>
+        <div class="cline">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg>
+          <div class="v"><small>CV</small><a href="docs/talah-alzoabi-cv.pdf" target="_blank" rel="noopener">Talah_Alzoabi_CV.pdf</a></div>
+          <button class="copy" type="button" data-doc="cv">View</button>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <span>© 2026 Talah Alzoabi · Jeddah, Saudi Arabia</span>
+      <a href="#home">Back to top ↑</a>
+    </footer>
+  </div>
+</section>
+</main>
+
+<dialog class="viewer" id="viewer" aria-labelledby="vTitle">
+  <div class="v-head">
+    <div class="t"><small id="vKind"></small><b id="vTitle"></b></div>
+    <button class="icon-btn" type="button" id="vPrev" aria-label="Previous item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="m15 6-6 6 6 6"/></svg></button>
+    <button class="icon-btn" type="button" id="vNext" aria-label="Next item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="m9 6 6 6-6 6"/></svg></button>
+    <button class="icon-btn" type="button" id="vClose" aria-label="Close viewer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  </div>
+  <div class="v-tabs" id="vTabs" role="tablist"></div>
+  <div class="v-body" id="vBody"></div>
+  <div class="v-foot">
+    <span class="info" id="vInfo"></span>
+    <a class="btn ghost sm" id="vVerify" target="_blank" rel="noopener" hidden>Verify on Coursera ↗</a>
+    <a class="btn primary sm" id="vOpen" target="_blank" rel="noopener">Open full PDF ↗</a>
+  </div>
+</dialog>
+
+<script>
+const DOCS = {
+  "ieom-chapter-structure":{label:"Chart",file:"img/ieom-chapter-structure.jpg",image:true,caption:"IEOM Student Chapter at Effat University, 2026–2027 team"},
+  "pwc-elevateme-selection":{label:"Certificate",file:"img/pwc-elevateme-selection.jpg",image:true,caption:"PwC Middle East ElevateMe selection, November 2026 – January 2027"},
+  "talah-alzoabi-cv-ats":{label:"ATS version",file:"docs/talah-alzoabi-cv-ats.pdf",pages:1,prev:1,orient:"p"},
+  "talah-alzoabi-cv":{label:"Designed CV",file:"docs/talah-alzoabi-cv.pdf",pages:1,prev:1,orient:"p"},
+  "cold-chain-ieom-paper":{label:"IEOM paper",file:"docs/cold-chain-ieom-paper.pdf",pages:16,prev:12,orient:"p"},
+  "cold-chain-presentation":{label:"Presentation",file:"docs/cold-chain-presentation.pdf",pages:8,prev:8,orient:"l"},
+  "food-waste-research-paper":{label:"Research paper",file:"docs/food-waste-research-paper.pdf",pages:25,prev:12,orient:"p"},
+  "oscm303-report":{label:"Report",file:"docs/oscm303-report.pdf",pages:17,prev:12,orient:"p"},
+  "oscm303-presentation":{label:"Presentation",file:"docs/oscm303-presentation.pdf",pages:15,prev:12,orient:"l"},
+  "sports-day-project-report":{label:"Project report",file:"docs/sports-day-project-report.pdf",pages:52,prev:12,orient:"p"},
+  "sports-day-presentation":{label:"Presentation",file:"docs/sports-day-presentation.pdf",pages:17,prev:12,orient:"l"},
+  "nova-water-marketing-report":{label:"Report",file:"docs/nova-water-marketing-report.pdf",pages:24,prev:12,orient:"p"},
+  "intellectual-property-presentation":{label:"Presentation",file:"docs/intellectual-property-presentation.pdf",pages:9,prev:9,orient:"l"},
+  "cert-mckinsey-forward":{label:"Certificate",file:"docs/cert-mckinsey-forward.pdf",pages:1,prev:1,orient:"l"},
+  "cert-six-sigma-black-belt":{label:"Certificate",file:"docs/cert-six-sigma-black-belt.pdf",pages:1,prev:1,orient:"l"},
+  "cert-business-analytics":{label:"Certificate",file:"docs/cert-business-analytics.pdf",pages:1,prev:1,orient:"l"},
+  "cert-prezi-social-media":{label:"Certificate",file:"docs/cert-prezi-social-media.pdf",pages:1,prev:1,orient:"l"},
+  "cert-personal-productivity":{label:"Certificate",file:"docs/cert-personal-productivity.pdf",pages:1,prev:1,orient:"l"},
+  "cert-volunteer-breakfast-campaign-2025":{label:"2025 certificate",file:"img/cert-volunteer-breakfast-campaign-2025.jpg",image:true,caption:"Certificate of appreciation, March 2025"},
+  "cert-volunteer-breakfast-campaign":{label:"2023 certificate",file:"docs/cert-volunteer-breakfast-campaign.pdf",pages:1,prev:1,orient:"l"},
+  "volunteer-joy-of-youth":{label:"Photo",file:"img/volunteer-joy-of-youth.jpg",image:true,caption:"Volunteering with Joy of Youth"},
+  "volunteer-subha":{label:"Photo",file:"img/volunteer-subha.jpg",image:true,caption:"Volunteering with Subha"},
+  "cert-queen-effat-citizenship-award":{label:"Certificate",file:"docs/cert-queen-effat-citizenship-award.pdf",pages:1,prev:1,orient:"l"},
+  "cert-deans-list-2025-2026":{label:"2025–2026",file:"docs/cert-deans-list-2025-2026.pdf",pages:1,prev:1,orient:"l"},
+  "cert-deans-list-2024-2025":{label:"2024–2025",file:"docs/cert-deans-list-2024-2025.pdf",pages:1,prev:1,orient:"l"}
+};
+
+const PROJECTS = [
+  {id:"coldchain",f:"research",course:"Research · OSCM 411",title:"Cold Chain Logistics Performance in Saudi Arabia",
+   text:"Case study of Tamer Group and Medical Fakeeh using interviews and data logger records. Presented in class, then published at the IEOM conference.",
+   meta:"Published May 2026 · Team of five",docs:["cold-chain-ieom-paper","cold-chain-presentation"],cover:"cold-chain-presentation",
+   kw:"cold chain pharmaceutical tamer fakeeh data logger ieom temperature"},
+  {id:"sports",f:"pm",course:"Project management · OSCM 407",title:"University Sports Day Challenge",
+   text:"Planned and ran a campus wellness competition as project manager, with separate girls’ and boys’ sessions on 20 April 2026. Built the charter, WBS, RAM, risk register, Gantt chart and budget. Delivered on schedule and on budget (SAR 1,200).",
+   meta:"2 sessions · 12 teams · 8 stations · 7 volunteers · Team of four",docs:["sports-day-project-report","sports-day-presentation"],cover:"sports-day-presentation",
+   kw:"project management wbs ram gantt risk budget charter event sports"},
+  {id:"tpl",f:"ops",course:"Service operations · OSCM 303",title:"Service Operations Analysis of a Saudi 3PL",
+   text:"Analyzed a third-party logistics provider’s strategy, capacity, process flow, layout, service blueprint, location and quality management. Used SWOT, DMAIC and FMEA to look at product damage.",
+   meta:"April 2026 · Team of four",docs:["oscm303-report","oscm303-presentation"],cover:"oscm303-presentation",
+   kw:"3pl service blueprint capacity layout swot dmaic fmea quality damage logistics"},
+  {id:"overstock",f:"research",course:"Individual research · GSEM 201",title:"Overstocking and Stock Rotation in Saudi Supermarkets",
+   text:"Surveyed supermarket inventory staff (13 responses) and used descriptive statistics and correlation. Overstocking affected waste more directly than stock rotation, which acted mainly through expiry.",
+   meta:"Final research paper · May 2026 · Individual",docs:["food-waste-research-paper"],cover:"food-waste-research-paper",
+   kw:"food waste survey fifo inventory overstock supermarket correlation statistics"},
+  {id:"litreview",f:"research",course:"Systematic literature review · OSCM 411",title:"Food Waste and Stock Rotation: A Literature Review",
+   text:"PRISMA-based review of how overstocking and weak stock rotation drive supermarket food waste, with a focus on Saudi Arabia.",
+   meta:"Individual paper · April 2026",docs:[],cover:null,kw:"prisma literature review food waste stock rotation"},
+  {id:"nova",f:"biz",course:"Marketing · MKT 201",title:"Marketing Mix Study of Nova Water",
+   text:"Team report on Saudi bottled water brand Nova, covering SWOT, STDP, product, pricing and promotion strategy.",
+   meta:"Fall 2023 · Team of five",docs:["nova-water-marketing-report"],cover:"nova-water-marketing-report",kw:"marketing nova water swot stdp pricing promotion"},
+  {id:"ip",f:"biz",course:"Business law and ethics · MGT 302",title:"Introduction to Intellectual Property",
+   text:"Group presentation on trademarks, trade names, patents, copyright and trade secrets, with business examples.",
+   meta:"Team of five",docs:["intellectual-property-presentation"],cover:"intellectual-property-presentation",kw:"intellectual property trademark patent copyright trade secret"}
+];
+
+const HONORS = [
+  {id:"queen",title:"Queen Effat Citizenship Award, nominee",org:"Effat University · 2026",text:"Recognized with a certificate for being nominated for the university’s citizenship award.",doc:"cert-queen-effat-citizenship-award"},
+  {id:"deans",title:"Dean’s List, Effat College of Business",org:"2024–2025 and 2025–2026",text:"Awarded for academic achievement two years in a row. Both certificates are included.",doc:"cert-deans-list-2025-2026",docs:["cert-deans-list-2025-2026","cert-deans-list-2024-2025"]}
+];
+const VOLUNTEER = [
+  {id:"joy",title:"Breakfast Distribution Campaign",org:"Joy of Youth, with the Human Comes First group",when:"2023 and 2025",text:"Volunteered in the breakfast distribution campaign in 2023 and again in 2025, and received a certificate of appreciation each year.",docs:["volunteer-joy-of-youth","cert-volunteer-breakfast-campaign-2025","cert-volunteer-breakfast-campaign"]},
+  {id:"subha",title:"Community Volunteering",org:"Subha",when:"",text:"Volunteered with the Subha team in community outreach in Jeddah.",docs:["volunteer-subha"],pos:"center 72%"}
+];
+const CERTS = [
+  {id:"mckinsey",title:"McKinsey Forward Program",org:"McKinsey.org · Jun 2026",doc:"cert-mckinsey-forward"},
+  {id:"sixsigma",title:"Organization Planning and Development for the Six Sigma Black Belt",org:"Kennesaw State University · Coursera · Oct 2026",doc:"cert-six-sigma-black-belt",verify:"https://coursera.org/verify/5ZDUJX40DGLB"},
+  {id:"analytics",title:"Business Analytics for Decision Making",org:"University of Colorado Boulder · Coursera · Oct 2024",doc:"cert-business-analytics",verify:"https://coursera.org/verify/445T7V4PORWP"},
+  {id:"prezi",title:"Create Social Media Content with Prezi",org:"Coursera guided project · Mar 2025",doc:"cert-prezi-social-media",verify:"https://coursera.org/verify/W8TODQ6XRODD"},
+  {id:"productivity",title:"Personal Productivity, Time Management and Prioritization",org:"Starweaver · Coursera · Oct 2023",doc:"cert-personal-productivity",verify:"https://coursera.org/verify/8SXNYFWJXNLU"}
+];
+
+const SKILLS = [
+  ["Inventory management",["flow","overstock","litreview"]],
+  ["Warehouse operations",["flow","tpl"]],
+  ["Cold chain logistics",["coldchain"]],
+  ["Cross-docking & last mile",["flow"]],
+  ["WMS tools & warehouse KPIs",["flow"]],
+  ["Quality tools: DMAIC, FMEA, SWOT",["tpl","sixsigma","nova"]],
+  ["Project planning: WBS, RAM, Gantt",["sports"]],
+  ["Research: surveys, interviews, PRISMA",["coldchain","overstock","litreview"]],
+  ["Excel & data analysis",["flow","analytics","overstock"]],
+  ["Leadership & event coordination",["ieom","sports"]],
+  ["Content creation",["aias","prezi"]]
+];
+const EVIDENCE = [
+  ["flow","Flow logistics internship","Role"],["coldchain","Cold chain IEOM paper","Research"],
+  ["overstock","Supermarket overstocking survey","Research"],["litreview","Food waste literature review","Research"],
+  ["tpl","3PL service operations analysis","Project"],["sports","Sports Day Challenge","Project"],
+  ["nova","Nova Water marketing study","Project"],["ieom","IEOM chapter vice president","Role"],
+  ["aias","AIAS content creator","Role"],["sixsigma","Six Sigma Black Belt course","Course"],
+  ["analytics","Business Analytics course","Course"],["prezi","Prezi social media project","Course"]
+];
+
+const $ = s => document.querySelector(s);
+const el = (tag, attrs={}, html="") => { const e=document.createElement(tag); for(const k in attrs) e.setAttribute(k,attrs[k]); if(html) e.innerHTML=html; return e; };
+const prevSrc = (id,i=1) => `prev/${id}-${i}.webp`;
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* theme */
+(function(){
+  const root=document.documentElement; let saved=null;
+  try{saved=localStorage.getItem('ta-theme')}catch(e){}
+  if(saved) root.setAttribute('data-theme',saved);
+  $('#themeBtn').addEventListener('click',()=>{
+    const cur=root.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+    const next=cur==='dark'?'light':'dark'; root.setAttribute('data-theme',next);
+    try{localStorage.setItem('ta-theme',next)}catch(e){}
+  });
+})();
+
+/* menu */
+$('#menuBtn').addEventListener('click',e=>{ const open=$('#links').classList.toggle('open'); e.currentTarget.setAttribute('aria-expanded',open); });
+document.querySelectorAll('#links a').forEach(a=>a.addEventListener('click',()=>{$('#links').classList.remove('open');$('#menuBtn').setAttribute('aria-expanded','false')}));
+
+/* header border, active link */
+(function(){
+  const h=$('#top'); const on=()=>h.classList.toggle('scrolled',scrollY>8); addEventListener('scroll',on,{passive:true}); on();
+  const links=[...document.querySelectorAll('#links a')];
+  if('IntersectionObserver' in window){
+    const io=new IntersectionObserver(es=>es.forEach(en=>{ if(en.isIntersecting) links.forEach(l=>l.classList.toggle('on',l.getAttribute('href')==='#'+en.target.id)); }),{rootMargin:'-40% 0px -55% 0px'});
+    links.forEach(a=>{const s=document.querySelector(a.getAttribute('href')); s&&io.observe(s)});
+  }
+})();
+
+/* GPA counter */
+(function(){
+  if(reduce) return;
+  document.querySelectorAll('[data-count]').forEach(n=>{
+    const end=parseFloat(n.dataset.count), dec=+n.dataset.dec; let t0=null;
+    function step(ts){ if(!t0)t0=ts; const k=Math.min(1,(ts-t0)/1400); n.textContent=(end*(1-Math.pow(1-k,4))).toFixed(dec); if(k<1) requestAnimationFrame(step); }
+    setTimeout(()=>requestAnimationFrame(step),300);
+  });
+})();
+
+/* projects */
+let filter='all', query='';
+function renderProjects(){
+  const g=$('#grid'); g.innerHTML=''; const q=query.trim().toLowerCase();
+  const list=PROJECTS.filter(p=>(filter==='all'||p.f===filter)&&(!q||(p.title+' '+p.text+' '+p.course+' '+p.kw+' '+p.meta).toLowerCase().includes(q)));
+  if(!list.length){ g.appendChild(el('p',{class:'no-results'},'No projects match that search. Try “inventory”, “3PL” or “OSCM”.')); return; }
+  list.forEach((p,i)=>{
+    const c=el('article',{class:'card card-box'}); c.style.animationDelay=(i*60)+'ms';
+    const thumb=p.cover
+      ? `<button class="thumb" type="button" data-open="${p.id}" aria-label="Open ${p.title}"><img src="${prevSrc(p.cover)}" alt=""><span class="pages">${p.docs.length>1?p.docs.length+' files':DOCS[p.docs[0]].pages+' pages'}</span></button>`
+      : `<div class="thumb empty"><span>Available on request</span></div>`;
+    const acts=p.docs.map((id,k)=>`<button class="btn ${k===0?'primary':'ghost'} sm" type="button" data-open="${p.id}" data-tab="${k}">View ${DOCS[id].label.replace('IEOM','IEOM').toLowerCase().replace('ieom','IEOM')}</button>`).join('');
+    c.innerHTML=`${thumb}<div class="card-body"><span class="kicker">${p.course}</span><h3>${p.title}</h3><p>${p.text}</p><span class="meta">${p.meta}</span>${acts?`<div class="acts">${acts}</div>`:''}</div>`;
+    g.appendChild(c);
+  });
+}
+$('#filters').addEventListener('click',e=>{ const b=e.target.closest('button'); if(!b) return; filter=b.dataset.f;
+  document.querySelectorAll('#filters button').forEach(x=>x.setAttribute('aria-pressed',x===b)); renderProjects(); });
+$('#q').addEventListener('input',e=>{query=e.target.value;renderProjects()});
+renderProjects();
+
+/* recognition */
+(function(){
+  const h=$('#honors');
+  HONORS.forEach(x=>{ const c=el('article',{class:'honor card-box reveal'});
+    c.innerHTML=`<button class="thumb" type="button" data-cert="${x.id}" aria-label="View ${x.title} certificate"><img src="${prevSrc(x.doc)}" alt=""></button>
+    <div class="honor-body"><span class="kicker">${x.org}</span><h3>${x.title}</h3><p>${x.text}</p><div class="acts"><button class="btn primary sm" type="button" data-cert="${x.id}">View certificate${x.docs?'s':''}</button></div></div>`;
+    h.appendChild(c); });
+  const g=$('#certs');
+  CERTS.forEach(x=>{ const c=el('article',{class:'cert card-box reveal'});
+    c.innerHTML=`<button class="thumb" type="button" data-cert="${x.id}" aria-label="View ${x.title} certificate"><img src="${prevSrc(x.doc)}" alt=""></button>
+    <div class="cert-body"><h3>${x.title}</h3><p>${x.org}</p><div class="acts"><button class="btn ghost sm" type="button" data-cert="${x.id}">${x.btn||'View'}</button>${x.verify?`<a class="btn ghost sm" href="${x.verify}" target="_blank" rel="noopener">Verify ↗</a>`:''}</div></div>`;
+    g.appendChild(c); });
+})();
+
+/* volunteering */
+(function(){
+  const box=$('#vol');
+  VOLUNTEER.forEach(x=>{ const c=el('article',{class:'vcard card-box reveal'});
+    c.innerHTML=`<button class="thumb" type="button" data-vol="${x.id}" aria-label="View photos from ${x.title}"><img src="${prevSrc(x.docs[0])}" alt="Volunteers with ${x.org}"${x.pos?` style="object-position:${x.pos}"`:''}></button>
+    <div class="card-body"><span class="kicker">${x.org}${x.when?' · '+x.when:''}</span><h3>${x.title}</h3><p>${x.text}</p>
+    <div class="acts"><button class="btn primary sm" type="button" data-vol="${x.id}" data-tab="0">View photo</button>${x.docs[1]?`<button class="btn ghost sm" type="button" data-vol="${x.id}" data-tab="1">View certificate${x.docs.length>2?'s':''}</button>`:''}</div></div>`;
+    box.appendChild(c); });
+})();
+
+/* reveal on scroll (content stays readable if anything fails) */
+(function(){
+  if(reduce||!('IntersectionObserver' in window)) return;
+  const items=[...document.querySelectorAll('.reveal')].filter(e=>e.getBoundingClientRect().top>innerHeight);
+  items.forEach(e=>e.classList.add('pre'));
+  const io=new IntersectionObserver(es=>es.forEach(en=>{ if(en.isIntersecting){en.target.classList.remove('pre');io.unobserve(en.target)} }),{rootMargin:'0px 0px -6% 0px'});
+  items.forEach(e=>io.observe(e));
+  setTimeout(()=>items.forEach(e=>e.classList.remove('pre')),6000);
+})();
+
+/* viewer */
+const V={dlg:$('#viewer'),group:[],idx:0,tab:0};
+const ALLCERTS=HONORS.map(x=>({...x,kind:'Recognition'})).concat(CERTS.map(x=>({...x,kind:'Certificate'})));
+function openProject(id,tab=0){
+  V.group=PROJECTS.filter(p=>p.docs.length).map(p=>({kind:p.course,title:p.title,docs:p.docs,id:p.id}));
+  V.idx=Math.max(0,V.group.findIndex(x=>x.id===id)); V.tab=tab; showV();
+}
+function openCert(id){
+  V.group=ALLCERTS.map(x=>({kind:x.kind+' · '+x.org,title:x.title,docs:x.docs||[x.doc],verify:x.verify,id:x.id}));
+  V.idx=Math.max(0,V.group.findIndex(x=>x.id===id)); V.tab=0; showV();
+}
+function openVol(id,tab=0){ V.group=VOLUNTEER.map(x=>({kind:'Volunteering · '+x.org,title:x.title,docs:x.docs,id:x.id})); V.idx=Math.max(0,V.group.findIndex(x=>x.id===id)); V.tab=tab; showV(); }
+const SINGLES={pwc:{kind:'Mentorship · PwC Middle East',title:'ElevateMe Mentorship Programme',docs:['pwc-elevateme-selection'],id:'pwc'},ieom:{kind:'Leadership · Vice President',title:'IEOM Student Chapter structure',docs:['ieom-chapter-structure'],id:'ieom'}};
+function openSingle(k){ V.group=[SINGLES[k]]; V.idx=0; V.tab=0; showV(); }
+function openCV(){ V.group=[{kind:'Curriculum vitae',title:'Talah Alzoabi, CV',docs:['talah-alzoabi-cv','talah-alzoabi-cv-ats'],id:'cv'}]; V.idx=0; V.tab=0; showV(); }
+function showV(){
+  const it=V.group[V.idx]; if(V.tab>=it.docs.length) V.tab=0;
+  const docId=it.docs[V.tab], d=DOCS[docId];
+  $('#vKind').textContent=it.kind; $('#vTitle').textContent=it.title;
+  const tabs=$('#vTabs'); tabs.innerHTML='';
+  if(it.docs.length>1){ it.docs.forEach((id,k)=>{ const b=el('button',{type:'button',role:'tab','aria-selected':k===V.tab},DOCS[id].label); b.onclick=()=>{V.tab=k;showV()}; tabs.appendChild(b); }); tabs.hidden=false; } else tabs.hidden=true;
+  const body=$('#vBody'); body.innerHTML=''; body.scrollTop=0;
+  if(d.image){ body.appendChild(el('img',{src:d.file,alt:it.title+' certificate'})); $('#vInfo').textContent=d.caption||'Photo'; }
+  else{
+    for(let i=1;i<=d.prev;i++){ const im=el('img',{src:prevSrc(docId,i),alt:`${it.title}, page ${i} of ${d.pages}`,loading:i>2?'lazy':'eager'}); if(d.orient==='p') im.classList.add('portrait-page'); body.appendChild(im); }
+    if(d.pages>d.prev){ const m=el('div',{class:'v-more'},`Previewing the first ${d.prev} of ${d.pages} pages.<br>`); m.appendChild(el('a',{class:'btn primary sm',href:d.file,target:'_blank',rel:'noopener'},'Open the full PDF ↗')); body.appendChild(m); }
+    $('#vInfo').textContent=d.pages===1?'PDF · 1 page':`PDF · ${d.pages} pages`;
+  }
+  const o=$('#vOpen'); o.href=d.file; o.textContent=d.image?'Open full image ↗':'Open full PDF ↗';
+  const v=$('#vVerify'); if(it.verify){v.href=it.verify;v.hidden=false}else v.hidden=true;
+  const multi=V.group.length>1; $('#vPrev').hidden=!multi; $('#vNext').hidden=!multi;
+  if(!V.dlg.open) V.dlg.showModal();
+}
+function stepV(n){ V.idx=(V.idx+n+V.group.length)%V.group.length; V.tab=0; showV(); }
+$('#vPrev').onclick=()=>stepV(-1); $('#vNext').onclick=()=>stepV(1); $('#vClose').onclick=()=>V.dlg.close();
+V.dlg.addEventListener('click',e=>{ if(e.target===V.dlg) V.dlg.close(); });
+V.dlg.addEventListener('keydown',e=>{ if(V.group.length<2) return; if(e.key==='ArrowRight') stepV(1); if(e.key==='ArrowLeft') stepV(-1); });
+document.addEventListener('click',e=>{
+  const o=e.target.closest('[data-open]'); if(o){ openProject(o.dataset.open,+(o.dataset.tab||0)); return; }
+  const c=e.target.closest('[data-cert]'); if(c){ openCert(c.dataset.cert); return; }
+  const sg=e.target.closest('[data-single]'); if(sg){ openSingle(sg.dataset.single); return; }
+  const vo=e.target.closest('[data-vol]'); if(vo){ openVol(vo.dataset.vol,+(vo.dataset.tab||0)); return; }
+  const d=e.target.closest('[data-doc]'); if(d){ openCV(); }
+});
+
+/* skills map */
+(function(){
+  const map=$('#map'), sl=$('#skillList'), elist=$('#evList'), svg=$('#wires');
+  const evName=Object.fromEntries(EVIDENCE.map(e=>[e[0],e[1]]));
+  SKILLS.forEach(([name,ev],i)=>{ const li=el('li');
+    li.appendChild(el('button',{class:'node',type:'button','data-s':i},`<span>${name}</span><span class="k">${ev.length} link${ev.length>1?'s':''}</span>`));
+    li.appendChild(el('div',{class:'mobile-ev',hidden:''},ev.map(x=>`<span>${evName[x]}</span>`).join(''))); sl.appendChild(li); });
+  EVIDENCE.forEach(([id,name,kind])=>{ const li=el('li'); li.appendChild(el('button',{class:'node',type:'button','data-e':id},`<span>${name}</span><span class="k">${kind}</span>`)); elist.appendChild(li); });
+  const paths=[];
+  function draw(){
+    svg.innerHTML=''; paths.length=0; if(getComputedStyle(svg).display==='none') return;
+    const r=map.getBoundingClientRect();
+    SKILLS.forEach(([n,ev],i)=>{ const a=sl.querySelector(`[data-s="${i}"]`).getBoundingClientRect();
+      ev.forEach(id=>{ const b=elist.querySelector(`[data-e="${id}"]`).getBoundingClientRect();
+        const x1=a.right-r.left,y1=a.top+a.height/2-r.top,x2=b.left-r.left,y2=b.top+b.height/2-r.top,mx=(x1+x2)/2;
+        const p=document.createElementNS('http://www.w3.org/2000/svg','path');
+        p.setAttribute('d',`M${x1} ${y1} C ${mx} ${y1}, ${mx} ${y2}, ${x2} ${y2}`); p.dataset.s=i; p.dataset.e=id; svg.appendChild(p); paths.push(p); }); });
+  }
+  const clear=()=>{ map.classList.remove('active'); map.querySelectorAll('.hot').forEach(x=>x.classList.remove('hot')); };
+  function hotSkill(i){ clear(); map.classList.add('active'); sl.querySelector(`[data-s="${i}"]`).classList.add('hot');
+    SKILLS[i][1].forEach(id=>elist.querySelector(`[data-e="${id}"]`).classList.add('hot')); paths.forEach(p=>{ if(p.dataset.s==i) p.classList.add('hot') }); }
+  function hotEv(id){ clear(); map.classList.add('active'); elist.querySelector(`[data-e="${id}"]`).classList.add('hot');
+    SKILLS.forEach(([n,ev],i)=>{ if(ev.includes(id)) sl.querySelector(`[data-s="${i}"]`).classList.add('hot') }); paths.forEach(p=>{ if(p.dataset.e===id) p.classList.add('hot') }); }
+  const pick=e=>{ const n=e.target.closest('.node'); if(!n) return; n.dataset.s!==undefined?hotSkill(+n.dataset.s):hotEv(n.dataset.e); };
+  map.addEventListener('mouseover',pick); map.addEventListener('focusin',pick); map.addEventListener('mouseleave',clear);
+  map.addEventListener('click',e=>{ const n=e.target.closest('.node[data-s]'); if(!n) return; const box=n.parentElement.querySelector('.mobile-ev');
+    const was=!box.hidden; sl.querySelectorAll('.mobile-ev').forEach(x=>x.hidden=true); box.hidden=was; });
+  draw(); addEventListener('resize',()=>{clearTimeout(draw.t);draw.t=setTimeout(draw,120)});
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(draw); setTimeout(draw,800);
+})();
+
+/* copy */
+document.querySelectorAll('[data-copy]').forEach(b=>b.addEventListener('click',()=>{
+  const txt=b.dataset.copy, reset=()=>setTimeout(()=>b.textContent='Copy',1600);
+  const fallback=()=>{ const t=b.parentElement.querySelector('a,.t'); const s=getSelection(), r=document.createRange(); r.selectNodeContents(t); s.removeAllRanges(); s.addRange(r); b.textContent='Selected'; reset(); };
+  try{ navigator.clipboard.writeText(txt).then(()=>{b.textContent='Copied';reset()},fallback); }catch(e){ fallback(); }
+}));
+</script>
+
+</body>
+</html>
