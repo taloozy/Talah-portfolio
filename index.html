@@ -123,6 +123,10 @@ section.block{padding-block:100px 0}
 .job{display:grid;grid-template-columns:180px minmax(0,1fr);gap:28px;padding:26px 28px;transition:box-shadow .3s,border-color .3s}
 .job:hover{box-shadow:var(--shadow);border-color:color-mix(in srgb,var(--accent) 30%,var(--line))}
 .job .when{font-size:14px;font-weight:600;color:var(--muted);padding-top:3px}
+.job-side{display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.logo{display:grid;place-items:center;width:128px;height:60px;padding:8px 10px;background:#fff;border:1px solid var(--line);border-radius:12px;transition:transform .3s}
+.job:hover .logo{transform:translateY(-2px)}
+.logo img{width:auto;height:auto;max-width:108px;max-height:44px;display:block}
 .job h3{font-size:19px;font-weight:700}
 .job .org{color:var(--accent);font-weight:600;margin-top:4px;font-size:15px}
 .job ul{margin:12px 0 0;padding-left:18px;display:grid;gap:6px;color:var(--muted);max-width:60em}
@@ -308,7 +312,10 @@ dialog.viewer::backdrop{background:rgba(8,12,24,.6);backdrop-filter:blur(4px)}
   .paper-side{border-left:0;border-top:1px solid var(--line);padding:22px 0 0}
   .contact{grid-template-columns:1fr}
   .stats{grid-template-columns:1fr 1fr}
-  .job{grid-template-columns:1fr;gap:6px}
+  .job{grid-template-columns:1fr;gap:10px}
+  .job-side{flex-direction:row;align-items:center;gap:14px}
+  .logo{width:104px;height:50px}
+  .logo img{max-width:86px;max-height:34px}
 }
 @media (max-width:640px){
   .hero{padding-block:40px 16px}
@@ -434,7 +441,7 @@ dialog.viewer::backdrop{background:rgba(8,12,24,.6);backdrop-filter:blur(4px)}
         </div>
       </article>
       <article class="job card-box reveal">
-        <p class="when">Sep 2026 – Present</p>
+        <div class="job-side"><span class="logo"><img src="img/logo-ieom.png" alt="IEOM Society logo"></span><p class="when">Sep 2026 – Present</p></div>
         <div>
           <h3>Vice President</h3>
           <p class="org">IEOM Society Student Chapter · Effat University</p>
@@ -448,7 +455,7 @@ dialog.viewer::backdrop{background:rgba(8,12,24,.6);backdrop-filter:blur(4px)}
         </div>
       </article>
       <article class="job card-box reveal">
-        <p class="when">Jul 2026 – Aug 2026</p>
+        <div class="job-side"><span class="logo"><img src="img/logo-flow.png" alt="Flow Progressive Logistics logo"></span><p class="when">Jul 2026 – Aug 2026</p></div>
         <div>
           <h3>Logistics Summer Intern (not official)</h3>
           <p class="org">Flow Progressive Logistics</p>
@@ -460,7 +467,7 @@ dialog.viewer::backdrop{background:rgba(8,12,24,.6);backdrop-filter:blur(4px)}
         </div>
       </article>
       <article class="job card-box reveal">
-        <p class="when">2026 – Present</p>
+        <div class="job-side"><span class="logo"><img src="img/logo-aias.png" alt="AIAS logo"></span><p class="when">2026 – Present</p></div>
         <div>
           <h3>Content Creator</h3>
           <p class="org">AIAS · Effat University</p>
