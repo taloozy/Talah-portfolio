@@ -682,6 +682,7 @@ const DOCS = {
   "cold-chain-ieom-paper":{label:"Paper",file:"docs/cold-chain-ieom-paper.pdf",pages:16,prev:12,orient:"p"},
   "cold-chain-presentation":{label:"Presentation",file:"docs/cold-chain-presentation.pdf",pages:8,prev:8,orient:"l"},
   "food-waste-research-paper":{label:"Paper",file:"docs/food-waste-research-paper.pdf",pages:25,prev:12,orient:"p"},
+  "barqwash-procurement-report":{label:"Report",file:"docs/barqwash-procurement-report.pdf",pages:38,prev:12,orient:"p"},
   "oscm303-report":{label:"Report",file:"docs/oscm303-report.pdf",pages:17,prev:12,orient:"p"},
   "oscm303-presentation":{label:"Presentation",file:"docs/oscm303-presentation.pdf",pages:15,prev:12,orient:"l"},
   "sports-day-project-report":{label:"Report",file:"docs/sports-day-project-report.pdf",pages:52,prev:12,orient:"p"},
@@ -711,6 +712,9 @@ const PROJECTS = [
   {id:"tpl",f:"ops",icon:"warehouse",tone:"t-teal",course:"Service operations · OSCM 303",title:"Service Operations Analysis of a Saudi 3PL",
    text:"Analyzed a third-party logistics provider’s strategy, capacity, process flow, layout, service blueprint, location and quality management, using SWOT, DMAIC and FMEA to look at product damage.",
    meta:[["layers","SWOT · DMAIC · FMEA"],["calendar","Apr 2026"]],docs:["oscm303-report","oscm303-presentation"],cover:"oscm303-presentation",kw:"3pl service blueprint capacity layout swot dmaic fmea quality damage logistics"},
+  {id:"procure",f:"ops",icon:"cart",tone:"t-teal",course:"Procurement management · OSCM 306",title:"Procurement and Supplier Evaluation for BarqWash",
+   text:"Evaluated local, regional and global suppliers for a mobile laundry service across five inputs: cargo van, washing machines, dryers, eco-friendly detergent and packaging, using weighted scoring models and total cost of ownership (TCO).",
+   meta:[["layers","Weighted scoring · TCO"],["calendar","Apr 2026"]],docs:["barqwash-procurement-report"],cover:"barqwash-procurement-report",kw:"procurement supplier evaluation sourcing tco weighted scoring barqwash laundry vendor selection"},
   {id:"coldppt",f:"ops",icon:"thermo",tone:"t-blue",course:"Supply chain · OSCM 411",title:"Cold Chain Logistics: Class Presentation",
    text:"Class presentation of our cold chain study comparing Tamer Group and Medical Fakeeh, which later became a published IEOM conference paper.",
    meta:[["presentation","8 slides"],["calendar","2026"]],docs:["cold-chain-presentation"],cover:"cold-chain-presentation",kw:"cold chain pharmaceutical tamer fakeeh presentation"},
@@ -758,14 +762,15 @@ const SKILLS = [
   ["Quality tools: DMAIC, FMEA, SWOT","shield",["tpl","sixsigma","nova"]],
   ["Project planning: WBS, RAM, Gantt","calendar",["sports"]],
   ["Research: surveys, interviews, PRISMA","book",["coldchain","overstock","litreview"]],
-  ["Excel & data analysis","chart",["flow","analytics","overstock"]],
+  ["Procurement & supplier evaluation","cart",["procure"]],
+  ["Excel & data analysis","chart",["flow","analytics","overstock","procure"]],
   ["Leadership & event coordination","trophy",["ieom","sports"]],
   ["Content creation","camera",["aias","prezi"]]
 ];
 const EVIDENCE = [
   ["flow","Flow logistics internship","Role"],["coldchain","Cold chain IEOM paper","Paper"],
   ["overstock","Supermarket overstocking paper","Paper"],["litreview","Food waste literature review","Paper"],
-  ["tpl","3PL service operations analysis","Project"],["sports","Sports Day Challenge","Project"],
+  ["tpl","3PL service operations analysis","Project"],["procure","BarqWash procurement report","Project"],["sports","Sports Day Challenge","Project"],
   ["nova","Nova Water marketing study","Project"],["ieom","IEOM chapter vice president","Role"],
   ["aias","AIAS content creator","Role"],["sixsigma","Six Sigma Black Belt course","Course"],
   ["analytics","Business Analytics course","Course"],["prezi","Prezi social media project","Course"]
