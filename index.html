@@ -264,6 +264,8 @@ section.block{padding-block:84px 0;position:relative}
 .vcard{display:flex;flex-direction:column;overflow:hidden;transition:transform .35s,box-shadow .35s}
 .vcard:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
 .vcard .thumb{aspect-ratio:4/3}
+.vcard .thumb.duo{display:grid;grid-template-columns:1.25fr .75fr;gap:3px;background:var(--line)}
+.vcard .thumb.duo img{min-width:0}
 .vcard .thumb img{object-position:center}
 
 /* contact */
@@ -870,7 +872,7 @@ function renderCerts(){
 
 /* volunteering */
 function renderVol(){const box=$('#vol');VOLUNTEER.forEach(v=>{const c=el('article',{class:'vcard card reveal'});
-  c.innerHTML=`<button class="thumb" type="button" data-view="v-${v.id}" aria-label="View photos from ${v.title}"><img src="${prevSrc(v.docs[0])}" alt="Volunteers with ${v.org}"${v.pos?` style="object-position:${v.pos}"`:''}><span class="badge-ico t-rose">${ic('heart')}</span></button>
+  c.innerHTML=`<button class="thumb${(v.photos||1)>1?' duo':''}" type="button" data-view="v-${v.id}" aria-label="View photos from ${v.title}">${Array.from({length:v.photos||1},(_,k)=>`<img src="${prevSrc(v.docs[k])}" alt="Volunteers with ${v.org}"${v.pos?` style="object-position:${v.pos}"`:''} data-k="${k}">`).join('')}<span class="badge-ico t-rose">${ic('heart')}</span></button>
   <div class="pbody"><span class="kicker">${ic('pin')}${v.org} · ${v.when}</span><h3 style="font-size:16px;font-weight:700">${v.title}</h3><p style="font-size:13.5px;color:var(--muted)">${v.text}</p>
   <div class="acts"><button class="btn primary sm" type="button" data-view="v-${v.id}">${ic('image')}${(v.photos||1)>1?'Photos':'Photo'}</button>${v.certs?`<button class="btn ghost sm" type="button" data-view="v-${v.id}" data-tab="${v.photos||1}">${ic('award')}Certificates</button>`:''}</div></div>`;box.appendChild(c)})}
 
@@ -896,7 +898,7 @@ const step=n=>{V.idx=(V.idx+n+V.group.length)%V.group.length;V.tab=0;show()};
 $('#vPrev').onclick=()=>step(-1);$('#vNext').onclick=()=>step(1);$('#vClose').onclick=()=>V.dlg.close();
 V.dlg.addEventListener('click',e=>{if(e.target===V.dlg)V.dlg.close()});
 V.dlg.addEventListener('keydown',e=>{if(V.group.length<2)return;if(e.key==='ArrowRight')step(1);if(e.key==='ArrowLeft')step(-1)});
-document.addEventListener('click',e=>{const b=e.target.closest('[data-view]');if(b)open(b.dataset.view,+(b.dataset.tab||0))});
+document.addEventListener('click',e=>{const b=e.target.closest('[data-view]');if(!b)return;const im=e.target.closest('img[data-k]');open(b.dataset.view,+(im&&b.contains(im)?im.dataset.k:(b.dataset.tab||0)))});
 
 /* skills: routes with moving packets */
 function renderSkills(){
