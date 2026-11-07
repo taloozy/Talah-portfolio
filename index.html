@@ -260,10 +260,10 @@ section.block{padding-block:84px 0;position:relative}
 .paper p{font-size:12.5px;color:var(--muted);margin-top:4px}
 
 /* volunteering */
-.vol{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.vcard{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);overflow:hidden;transition:transform .35s,box-shadow .35s}
+.vol{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.vcard{display:flex;flex-direction:column;overflow:hidden;transition:transform .35s,box-shadow .35s}
 .vcard:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
-.vcard .thumb{aspect-ratio:auto;height:100%;min-height:200px;border-bottom:0;border-right:1px solid var(--line)}
+.vcard .thumb{aspect-ratio:4/3}
 .vcard .thumb img{object-position:center}
 
 /* contact */
@@ -309,7 +309,7 @@ dialog.viewer::backdrop{background:rgba(5,8,14,.7);backdrop-filter:blur(4px)}
   .stats{grid-template-columns:1fr 1fr}
   .skill-groups{grid-template-columns:1fr 1fr}
   .map{gap:0 50px}
-  .vol{grid-template-columns:1fr}
+  .vol{grid-template-columns:1fr 1fr}
 }
 @media (max-width:760px){
   .sec-head{grid-template-columns:1fr}
@@ -330,8 +330,7 @@ dialog.viewer::backdrop{background:rgba(5,8,14,.7);backdrop-filter:blur(4px)}
   .node .k{display:none}
   .compare{grid-template-columns:1fr}
   .pinned .main{padding:22px 20px}
-  .vcard{grid-template-columns:1fr}
-  .vcard .thumb{min-height:0;aspect-ratio:16/10;border-right:0;border-bottom:1px solid var(--line)}
+  .vol{grid-template-columns:1fr}
   .contact{padding:28px 20px}
   .about-text{padding:20px}
   section.block{padding-block:64px 0}
@@ -697,6 +696,7 @@ const DOCS = {
   "cert-volunteer-breakfast-campaign-2025":{label:"2025 certificate",file:"img/cert-volunteer-breakfast-campaign-2025.jpg",image:true,caption:"Certificate of appreciation, March 2025"},
   "cert-volunteer-breakfast-campaign":{label:"2023 certificate",file:"docs/cert-volunteer-breakfast-campaign.pdf",pages:1,prev:1,orient:"l"},
   "volunteer-joy-of-youth":{label:"Photo",file:"img/volunteer-joy-of-youth.jpg",image:true,caption:"Volunteering with Joy of Youth"},
+  "volunteer-marathon-2025":{label:"Photo",file:"img/volunteer-marathon-2025.jpg",image:true,caption:"Volunteering at the Let’s Walk the Walk marathon, 2025"},
   "volunteer-subha":{label:"Photo",file:"img/volunteer-subha.jpg",image:true,caption:"Volunteering with Subha"},
   "cert-queen-effat-citizenship-award":{label:"Certificate",file:"docs/cert-queen-effat-citizenship-award.pdf",pages:1,prev:1,orient:"l"},
   "cert-deans-list-2025-2026":{label:"2025–2026",file:"docs/cert-deans-list-2025-2026.pdf",pages:1,prev:1,orient:"l"},
@@ -745,7 +745,8 @@ const CERTS = {
   ]}
 };
 const VOLUNTEER = [
-  {id:"joy",title:"Breakfast Distribution Campaign",org:"Joy of Youth, with the Human Comes First group",when:"2023 and 2025",text:"Volunteered in the breakfast distribution campaign in 2023 and again in 2025, and received a certificate of appreciation each year.",docs:["volunteer-joy-of-youth","cert-volunteer-breakfast-campaign-2025","cert-volunteer-breakfast-campaign"]},
+  {id:"marathon",title:"“Let’s Walk the Walk” Marathon",org:"Help Center Company, with Effat University",when:"2025",text:"Volunteered at the Let’s Walk the Walk marathon, cheering on the kids alongside my colleagues and doctors after Effat University invited us to take part.",docs:["volunteer-marathon-2025"]},
+  {id:"joy",title:"Breakfast Distribution Campaign",org:"Joy of Youth and Human Comes First",when:"2023 and 2025",text:"Volunteered in the breakfast distribution campaign in 2023 and again in 2025, and received a certificate of appreciation each year.",docs:["volunteer-joy-of-youth","cert-volunteer-breakfast-campaign-2025","cert-volunteer-breakfast-campaign"]},
   {id:"subha",title:"Community Volunteering",org:"Subha",when:"Jeddah",text:"Volunteered with the Subha team in community outreach in Jeddah.",docs:["volunteer-subha"],pos:"center 72%"}
 ];
 const SKILLS = [
